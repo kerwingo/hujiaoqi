@@ -36,74 +36,9 @@ function toTargetPage(URL?: any, duration = 0) {
     })
   }, duration)
 }
-async function getConfig(fieldName = 'mini_project_chat') {
-  const { data } = await baseApi.getSystemConfigInfo({
-    fieldName
-  })
-  configStore.videoPageOpen = data.fieldValue !== '0'
-}
 
 onLoad(async (option) => {
-  // #ifdef MP-WEIXIN
-  const redirect_url = option?.redirect_url
-  delete option?.redirect_url
-  const url_rewirte = parseParams(redirect_url, option || {})
-  if (option?.shareCode) {
-    uni.setStorageSync('shareCode', option?.shareCode)
-  }
-  uni.login({
-    provider: 'weixin',
-    success: async (res) => {
-      uni.setStorageSync('wxCode', res.code)
-      await userStore.wxMiniLogin(res.code)
-      await userStore.loginByOpenId()
-      toTargetPage(url_rewirte)
-    },
-    fail: () => {
-      uni.hideLoading()
-      uni.showToast({
-        title: '请检查网络，退出后重新进入！',
-        icon: 'none',
-        duration: 2000
-      })
-    }
-  })
-  // #endif
-  // #ifdef H5
-  let url = ''
-  const origin_url = getQueryVariable('redirect_url')
-  const qrcode = getQueryVariable('qrcode')
-  const from = getQueryVariable('from')
-  const shareCode = getQueryVariable('shareCode')
-  if (shareCode) {
-    uni.setStorageSync('shareCode', shareCode)
-  }
-  const tempParams = getQueryObject(window.location.search)
-  if (tempParams.redirect_url) {
-    delete tempParams?.redirect_url
-  }
-  if (origin_url) {
-    url = parseParams(origin_url, tempParams)
-    if (qrcode) {
-      configStore.setEnterType('storeQrcode')
-      if (origin_url === '/pages/physicalShopCheck/index') {
-        // 扫店铺结算二维码的特殊处理，使结算完成跳转首页为店铺首页
-        const url_rewirte = parseParams('/pages/physicalShop/index', tempParams)
-        uni.setStorageSync('redirect_url', url_rewirte)
-      } else {
-        uni.setStorageSync('redirect_url', url)
-      }
-    }
-  }
-  if (from === 'login') {
-    const redirect_url = uni.getStorageSync('redirect_url')
-    if (redirect_url) {
-      url = redirect_url
-      uni.removeStorageSync('redirect_url')
-    }
-  }
-  toTargetPage(url)
-  // #endif
+  toTargetPage()
 })
 </script>
 

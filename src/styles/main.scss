@@ -1,0 +1,18 @@
+@import "./iconfont.scss";
+@import "./helper.scss";
+
+
+page {
+    background-color: $uni-bg-color;
+    height: 100%;
+}
+.hy-btn {
+    display: block;
+    button {
+        width: 100%;
+        height: 60rpx;
+        background-color: $bg-primary !important;
+        color: #fff !important;
+        border-color: $bg-primary;
+    }
+}

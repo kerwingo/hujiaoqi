@@ -1,0 +1,27 @@
+@mixin ellipsis($line:1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+
+@mixin delay($times:1) {
+    animation-delay: 0.5s * $times;
+}
+
+.delay_1 {
+    @include delay(1)
+}
+
+.delay_2 {
+    @include delay(2)
+}
+
+.delay_3 {
+    @include delay(3)
+}
+
+.delay_4 {
+    @include delay(4)
+}

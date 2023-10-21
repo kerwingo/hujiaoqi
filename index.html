@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="full-screen" content="yes">
+  <script>
+    var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+      CSS.supports('top: constant(a)'))
+    document.write(
+      '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+      (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+  </script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+  <!-- jmessage-sdk-web.2.6.0.min.js -->
+  <script src="https://image.blacksilverscore.com/App/53d1fa3d-cc49-46c5-8bec-040fde586c9c.js"></script>
+  <!-- jmessage-wxapplet-sdk-1.4.3.min.js -->
+  <!-- <script src="https://image.blacksilverscore.com/App/ebc592af-9e4d-4deb-8014-25d99568c893.js"></script> -->
+  <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+  <script src="https://cdn.bootcss.com/eruda/1.4.3/eruda.min.js"></script>
+  <script>
+    // eruda.init();
+  </script>
+  <title></title>
+  <!--preload-links-->
+  <!--app-context-->
+</head>
+
+<body>
+  <div id="app">
+    <!--app-html-->
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

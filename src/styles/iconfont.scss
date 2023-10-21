@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "custom-icon"; /* Project id 3983494 */
+  src: url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.woff2?t=1693389052357') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.woff?t=1693389052357') format('woff'),
+       url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.ttf?t=1693389052357') format('truetype');
+}
+.custom-icon {
+	/* 引用上面声明的"custom-icon"字体 */
+	font-family: "custom-icon" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* uview自定义字体图标的前缀为"custom-icon-" */
+.custom-icon-group:before {
+  content: "\e634";
+}
+
+
+@font-face {
+  font-family: "iconfont"; /* Project id 3983494 */
+  src: url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.woff2?t=1693389052357') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.woff?t=1693389052357') format('woff'),
+       url('//at.alicdn.com/t/c/font_3983494_3n4728sim2u.ttf?t=1693389052357') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hy-icon-group:before {
+  content: "\e634";
+}
+.hy-icon-video:before {
+  content: "\e876";
+}
+
+.hy-icon-videoPlay:before {
+  content: "\e603";
+}
+
+.hy-icon-groupChat:before {
+  content: "\e618";
+}
+
+.hy-icon-like-line:before {
+  content: "\e813";
+}
+
+.hy-icon-yunshangchuan:before {
+  content: "\e601";
+}
+
+.hy-icon-plus:before {
+  content: "\e665";
+}
+
+.hy-icon-fenxiangzhuanfa:before {
+  content: "\e716";
+}
+
+.hy-icon-yidianzan:before {
+  content: "\e65c";
+}
+
+.hy-icon-push:before {
+  content: "\e694";
+}
+
+.hy-icon-hot:before {
+  content: "\e68e";
+}
+
+.hy-icon-vip:before {
+  content: "\e6e1";
+}
+
+.hy-icon-address:before {
+  content: "\e636";
+}
+
+.hy-icon-paySuccess:before {
+  content: "\e663";
+}
+
+.hy-icon-wechat:before {
+  content: "\e629";
+}
+
+.hy-icon-dianhua:before {
+  content: "\e678";
+}
+
+.hy-icon-delete:before {
+  content: "\e67e";
+}
+
+.hy-icon-more:before {
+  content: "\e600";
+}
+
+.hy-icon-arrow-right:before {
+  content: "\e675";
+}
+
+.hy-icon-search:before {
+  content: "\e8b9";
+}
+
+.hy-icon-scan:before {
+  content: "\e7d4";
+}

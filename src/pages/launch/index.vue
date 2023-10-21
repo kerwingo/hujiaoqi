@@ -58,8 +58,6 @@ onLoad(async (option) => {
       await userStore.wxMiniLogin(res.code)
       await userStore.loginByOpenId()
       toTargetPage(url_rewirte)
-      getConfig('mini_project_chat')
-      getConfig('mini_project_video')
     },
     fail: () => {
       uni.hideLoading()

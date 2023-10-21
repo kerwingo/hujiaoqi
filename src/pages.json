@@ -16,7 +16,6 @@
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7",
 				"onReachBottomDistance": 50,
-				// "navigationStyle": "custom",
 				"app-plus": {
 					"titleNView": false,
 					"pullToRefresh": {
@@ -68,13 +67,13 @@
 		{
 			"path": "pages/mine/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#fff"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "收银语音助手",
+		"navigationBarTitleText": "语音助手",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"onReachBottomDistance": 50

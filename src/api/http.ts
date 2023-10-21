@@ -49,7 +49,7 @@ BASEURL = import.meta.env.VITE_APP_AXIOS_BASE_URL
 // @ts-ignore
 BASEURL = 'https://api.blacksilverscore.com'
 // #endif
-enum RequestEnums {
+export enum RequestEnums {
   TIMEOUT = 20000,
   OVERDUE = 401, // 登录失效
   FAIL = 999, // 请求失败
@@ -61,7 +61,7 @@ const CONFIG = {
   withCredentials: true
 }
 
-class RequestHttp {
+export class RequestHttp {
   static instance: any
 
   showModal: boolean

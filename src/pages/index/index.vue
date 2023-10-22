@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <!-- eslint-disable consistent-return -->
 <!-- eslint-disable no-unused-expressions -->
 <!-- eslint-disable no-console -->
@@ -70,16 +71,31 @@ bgm.onEnded(() => {
   callback && callback()
 })
 const timer = () => {
+  let delay = 5
+  if (option.intervalType === 1) {
+    delay = option.interval
+  } else {
+    delay = Math.floor(
+      Math.random() * (option.intervalEnd - option.intervalStart) +
+        option.intervalStart
+    )
+  }
   setTimeout(() => {
     playSpeech()
-  }, option.interval * 1000)
+  }, delay * 1000)
 }
 function playSpeech() {
   let type = types.find((item) => item.value === option.type)
   if (type?.name === types[2].name) {
     type = types[Math.round(Math.random() * (types.length - 2))]
   }
-  text.value = `${type?.name}到账${option.money}元`
+  let { money } = option
+  if (option.moneyType === 2) {
+    money = Math.floor(
+      Math.random() * (option.moneyEnd - option.moneyStart) + option.moneyStart
+    )
+  }
+  text.value = `${type?.name}到账${money}元`
   plugin.textToSpeech({
     lang: 'zh_CN',
     tts: true, // 启动文本转语音功能
@@ -125,6 +141,10 @@ function saveFn() {
   uni.setStorageSync('plan', planList.value)
   show.value = false
   option.name = ''
+  uni.showToast({
+    icon: 'none',
+    title: '保存成功'
+  })
 }
 function jump() {
   uni.switchTab({

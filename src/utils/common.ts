@@ -238,7 +238,7 @@ export const isMObile = (value: string) => {
   return /^1[3-9]\d{9}$/.test(value)
 }
 
-export const $toast = (
+export const toast = (
   str: any,
   option: { duration?: any } = { duration: 2000 }
 ) => {
@@ -273,5 +273,5 @@ export default {
   parseParams,
   isEmptyObject,
   isMObile,
-  $toast
+  toast
 }

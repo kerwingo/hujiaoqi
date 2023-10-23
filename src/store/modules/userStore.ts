@@ -14,12 +14,28 @@ const userStore = defineStore('storeId', {
     openid: '',
     wxUserInfo: {},
     walletList: [],
-    hasNewDynamic: false
+    hasNewDynamic: false,
+    options:{
+      name: '',
+      moneyType: 2,
+      money: 100, // 收款金额
+      moneyStart: 100,
+      moneyEnd: 1000,
+      type: 1, // 收款类型
+      intervalType: 2,
+      interval: 2, // 播报间隔
+      intervalStart: 2,
+      intervalEnd: 600, // 十分钟
+      indate: 3600 // 定时
+    }
   }),
   getters: {
     hasLogin: (state) => Boolean(state.accessToken)
   },
   actions: {
+    syncSetOption(data: {}) {
+      this.options = data
+    },
     syncSetOpenid(openid: string) {
       this.openid = openid
       uni.setStorageSync('openid', openid)

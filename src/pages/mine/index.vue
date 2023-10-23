@@ -5,7 +5,9 @@
 import { reactive, ref } from 'vue'
 import { onLoad, onShow, onReady } from '@dcloudio/uni-app'
 import { toast } from '@/utils/common'
+import { useUserStore } from '@/store'
 
+const userStore = useUserStore()
 const planList = ref([])
 const options = [
   {
@@ -22,8 +24,9 @@ const options = [
   }
 ]
 function use(item: any) {
+  userStore.syncSetOption(item.data)
   uni.switchTab({
-    url: `/pages/index/index?id=${item}`
+    url: '/pages/index/index'
   })
 }
 function click(index: string | number, index1: number) {
@@ -31,7 +34,7 @@ function click(index: string | number, index1: number) {
     planList.value.splice(index, 1)
     uni.removeStorageSync('plan')
     uni.setStorageSync('plan', planList.value)
-    toast(`删除了第${index}个计划`)
+    toast(`删除了第${index + 1}个计划`)
   } else {
     planList.value[index].show = false
     toast('使用成功')
@@ -74,6 +77,7 @@ onLoad((option) => {})
 </template>
 
 <style lang="scss" scoped>
+@import '@/styles/helper.scss';
 .container {
   background-color: #f7f7f7;
   position: relative;
@@ -94,7 +98,8 @@ onLoad((option) => {})
       overflow: hidden;
       .item {
         background: #fff;
-        padding: 20rpx;
+        padding: 30rpx 20rpx;
+        @include ellipsis(2);
       }
     }
   }

@@ -4,13 +4,16 @@
 <!-- eslint-disable no-console -->
 <!-- eslint-disable no-use-before-define -->
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { onShow, onLoad, onShareAppMessage } from '@dcloudio/uni-app'
 import { storeToRefs } from 'pinia'
 import { speechApi } from '@/api'
 import { sharePathFormat } from '@/common/wechat-share'
 import { generateId } from '@/utils/common'
+import { useUserStore } from '@/store'
 
+const userStore = useUserStore()
+const { options } = storeToRefs(userStore)
 const plugin = requirePlugin('WechatSI')
 const text = ref('支付宝到账100元')
 const types = [
@@ -40,17 +43,12 @@ const cate = [
 const planList = ref<any>([])
 const show = ref(false)
 const option = reactive({
-  name: '',
-  moneyType: 1,
-  money: 100, // 收款金额
-  moneyStart: 1,
-  moneyEnd: 1000,
-  type: 2, // 收款类型
-  intervalType: 1,
-  interval: 2, // 播报间隔
-  intervalStart: 2,
-  intervalEnd: 600, // 十分钟
-  indate: 3600 // 定时
+  ...options.value
+})
+watch(options, (nweOption) => {
+  Object.keys(option).forEach((key) => {
+    option[key] = options.value[key]
+  })
 })
 const bgm = uni.getBackgroundAudioManager()
 bgm.title = '语音助手'
@@ -275,7 +273,12 @@ onShareAppMessage(() => {
         ref="model"
       >
         <view class="slot-content">
-          <u-input :border="true" type="text" v-model="option.name" />
+          <u-input
+            :border="true"
+            type="text"
+            v-model="option.name"
+            maxlength="30"
+          />
         </view>
       </u-modal>
     </view>

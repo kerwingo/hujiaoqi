@@ -15,7 +15,7 @@ https://wap.blacksilverscore.com/?redirect_url=/pages/productDetail/index&qrcode
 
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
-import logo from '@/static/ic_launcher.png'
+import logo from '@/static/ic_launcher2.png'
 import { useUserStore, useConfigStore } from '@/store'
 import {
   getQueryObject,
@@ -46,11 +46,11 @@ onLoad(async (option) => {
   <div class="launch">
     <view class="content" style="--num: 150">
       <image class="logo" :src="logo" mode="widthFix" />
-      <text class="name">黑银生活</text>
+      <text class="name">黑银积分</text>
       <view class="dot"></view>
     </view>
     <view class="footer">
-      <view class="text">Copyright © 黑银生活版权所有</view>
+      <view class="text">Copyright © 黑银积分版权所有</view>
     </view>
   </div>
 </template>
@@ -71,7 +71,7 @@ onLoad(async (option) => {
     width: 420rpx;
     height: 420rpx;
     border-radius: 50%;
-    border: 1px solid $bg-primary;
+    border: 1px solid #f00609;
     animation: fadeIn 2s linear forwards;
 
     .logo {
@@ -101,7 +101,7 @@ onLoad(async (option) => {
         transform: translateX(-50%);
         width: 14px;
         height: 14px;
-        background: #00a6bc;
+        background: #f00609;
         border-radius: 50%;
       }
     }

@@ -25,7 +25,7 @@ const userStore = defineStore('storeId', {
       intervalType: 2,
       interval: 2, // 播报间隔
       intervalStart: 2,
-      intervalEnd: 600, // 十分钟
+      intervalEnd: 10, // 10s
       indate: 3600 // 定时
     }
   }),
